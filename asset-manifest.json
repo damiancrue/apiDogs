@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/apiDogs/static/css/main.51fc6dba.chunk.css",
-    "main.js": "/apiDogs/static/js/main.48a150cb.chunk.js",
-    "main.js.map": "/apiDogs/static/js/main.48a150cb.chunk.js.map",
+    "main.js": "/apiDogs/static/js/main.3f5346f9.chunk.js",
+    "main.js.map": "/apiDogs/static/js/main.3f5346f9.chunk.js.map",
     "runtime-main.js": "/apiDogs/static/js/runtime-main.2bde4adf.js",
     "runtime-main.js.map": "/apiDogs/static/js/runtime-main.2bde4adf.js.map",
     "static/js/2.17b063ac.chunk.js": "/apiDogs/static/js/2.17b063ac.chunk.js",
@@ -16,6 +16,7 @@
     "static/media/all4.66587314.png": "/apiDogs/static/media/all4.66587314.png",
     "static/media/index.css": "/apiDogs/static/media/backall3.ee870606.png",
     "static/media/lookingatyou.515e3679.png": "/apiDogs/static/media/lookingatyou.515e3679.png",
+    "static/media/ouch.aa9695ca.png": "/apiDogs/static/media/ouch.aa9695ca.png",
     "static/media/patit.2c1dbbaa.png": "/apiDogs/static/media/patit.2c1dbbaa.png",
     "static/media/waitting.7742d17f.png": "/apiDogs/static/media/waitting.7742d17f.png"
   },
@@ -23,6 +24,6 @@
     "static/js/runtime-main.2bde4adf.js",
     "static/js/2.17b063ac.chunk.js",
     "static/css/main.51fc6dba.chunk.css",
-    "static/js/main.48a150cb.chunk.js"
+    "static/js/main.3f5346f9.chunk.js"
   ]
 }
