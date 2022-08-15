@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/apiDogs/static/css/main.e2c15df8.chunk.css",
-    "main.js": "/apiDogs/static/js/main.f8f33afb.chunk.js",
-    "main.js.map": "/apiDogs/static/js/main.f8f33afb.chunk.js.map",
+    "main.js": "/apiDogs/static/js/main.c0c939fd.chunk.js",
+    "main.js.map": "/apiDogs/static/js/main.c0c939fd.chunk.js.map",
     "runtime-main.js": "/apiDogs/static/js/runtime-main.2bde4adf.js",
     "runtime-main.js.map": "/apiDogs/static/js/runtime-main.2bde4adf.js.map",
     "static/js/2.17b063ac.chunk.js": "/apiDogs/static/js/2.17b063ac.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.2bde4adf.js",
     "static/js/2.17b063ac.chunk.js",
     "static/css/main.e2c15df8.chunk.css",
-    "static/js/main.f8f33afb.chunk.js"
+    "static/js/main.c0c939fd.chunk.js"
   ]
 }

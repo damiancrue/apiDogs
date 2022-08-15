@@ -25,13 +25,7 @@ export default function Detail(props) {
 
     return (
     <div>{ 
-        dog[0].id!==id? 
-        <div>
-        <h3 className="landing">Loading...</h3>
-        <p>if this take more than 5 seconds, please return to home</p>
-        <img src={waitting} alt="waitting" />
-        <Link to="/home"> <button className='button'> back to home</button></Link> 
-    </div>:
+            dog.length > 0 ?
             <div className='detail'>
             <h1 className="landing">{dog[0].name.toUpperCase()}</h1>
             <div className="detailContent">
@@ -49,8 +43,13 @@ export default function Detail(props) {
             <Link to="/home" > <button onClick={dog=[]} className='button'> back to home</button></Link> 
             </div>
             </div>
+            </div>:
+            <div>
+                <h3>Loading...</h3>
+                <p>if this take more than 5 seconds, please return to home</p>
+                <img src={waitting} alt="waitting" />
+                <Link to="/home"> <button className='button'> back to home</button></Link> 
             </div>
-
     }
     </div>
     )   
