@@ -1,0 +1,169 @@
+1. Pasar de async away a promesas
+Promise:
+export function getDetail(id){
+    return function (dispatch){
+        var json = axios.get('http://localhost:3001/dogs/' + id)
+            .then(res => res.data)
+            .catch(err => console.log(err));
+        return dispatch({
+            type: GET_DETAIL,
+            payload: json,
+        })
+    }
+}
+-------------------------------------------------------------------
+2. Agregar la ruta de Delete o put
+	ACTIONS
+export function deleteDog (id) {
+    return async function (dispatch){
+        try{
+            var json = await axios.delete('http://localhost:3001/dogs/'+id);
+            return dispatch(
+                {
+                type: 'DELETE_DOG',
+                payload: json.data
+            },
+            )
+    } catch (error){
+        console.log(error)
+    }
+    }
+}
+
+export function updateDog (id, payload) {
+    return async function (dispatch){
+        try{
+            var json = await axios.put('http://localhost:3001/dogs/'+id, payload);
+            return dispatch(
+                {
+                type: 'UPDATE_DOG',
+                payload: json.data
+            },
+            )
+    } catch (error){
+        console.log(error)
+    }
+    }
+}
+
+	REDUCER
+   case 'DELETE_DOG':
+            return {
+                ...state
+            }
+        case 'UPDATE_DOG':
+            return {
+                ...state
+            }
+------------------------------------------------------------------------------------
+3. Cread nuevo componente de react en Nueva ruta
+xx
+------------------------------------------------------------------------------------
+4. Crear filtro
+------------------------------------------------------------------------------------
+5. Que es el thunk y como funciona
+xx
+------------------------------------------------------------------------------------
+6. como se conecta el back con el front
+xx
+------------------------------------------------------------------------------------
+7. Paginado con next y previous
+------------------------------------------------------------------------------------
+8. Agregar nuevo dato para renderizar en las cartas del home
+xx
+------------------------------------------------------------------------------------
+9. Crear filtro nuevo con dato diferente
+
+------------------------------------------------------------------------------------
+10. Explicar ciclo/recorrido del post/get
+xx
+------------------------------------------------------------------------------------
+11. Flujo de trabajo de Redux
+xx
+------------------------------------------------------------------------------------
+12. Diferencias entre req.params, req.body, req.query
+xx
+------------------------------------------------------------------------------------
+13. Hacer una ruta nueva en el back
+
+router.put('/dogs/:breedId', async (req, res) => {
+    try{
+        let {
+            name,
+            heightMin,
+            heightMax,
+            weightMin,
+            weightMax,
+            life_span,
+            image,
+            temperaments,
+        } = req.body;
+        let { breedId } = req.params;
+        let breedUpdated = await Breed.update({
+            name,
+            heightMin,
+            heightMax,
+            weightMin,
+            weightMax,
+            life_span: life_span + ' years',
+            image,
+        }, {
+            where: {
+                id: breedId,
+            }
+        });
+        let temperamentDB = await Temperament.findAll({
+            where: {
+                name: temperaments,
+            }
+        });
+        breedUpdated.addTemperament(temperamentDB);
+        res.status(200).send('Breed Updated');
+    }
+    catch(e){
+        res.status(404).send('please check the data');
+    }
+}
+);
+
+router.delete('/dogs/:breedId', async (req, res) => {
+    try{
+    const { breedId } = req.params;
+    const breed = await Breed.findOne({
+        where: {
+            id: breedId,
+        }
+    });
+    await breed.destroy();
+    res.status(200).send('Breed deleted');
+}
+catch(e){
+res.status(404).send('Breed not found');
+}})
+--------------------------------------------------------------------------------------------
+14. Try/catch en el manejo de rutas
+xx
+---------------------------------------------------------------------------------------------
+15. Cuidado con el orden de las rutas, lo más específico va arriba y lo más general abajo
+xx
+---------------------------------------------------------------------------------------------
+16. Buscar sin llenar nada (arreglar el searchbar)
+xx
+---------------------------------------------------------------------------------------------
+17. Que pasa cuando busco algo y no existe una advertencia
+xx
+---------------------------------------------------------------------------------------------
+18. Que hace el useEffect
+xx
+---------------------------------------------------------------------------------------------
+19. Cómo es el flow del post del formulario a la database por ejemplo 
+xx
+---------------------------------------------------------------------------------------------
+20. Modificar el código para que muestra otra cantidad de ítems por pagina
+xx
+---------------------------------------------------------------------------------------------
+21. Aplicar formularios controlados
+xx
+---------------------------------------------------------------------------------------------
+22. Cambiar el código para que se vean más países por pagina por ejemplo
+xx

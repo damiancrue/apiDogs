@@ -22,6 +22,7 @@ const indexOfFirstDog = indexOfLastDog - dogsPerPage; // 8 - 8 = 0
 const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
 const temperaments = useSelector(state => state.temperaments);
 
+
 const pages = (pageNumber=>(
     setCurrentPage(pageNumber)
 ))
@@ -65,7 +66,7 @@ const pages = (pageNumber=>(
             <header>
             <img className="imgbk"src={puppy1} alt="puppies" />
             <div className='main'>
-            <h1>Dogs breed database</h1>
+            <h1>Dog breed database</h1>
             <p>get information about dog breeds</p>
             </div>
             <img className="imgbk"src={puppy2} alt="puppies" />
@@ -74,7 +75,7 @@ const pages = (pageNumber=>(
             {/* <Link className='link_to' to='/create'>new Breed</Link> */}
             <div className='back-head'>
             <div className='filters'>
-            <button className='button' onClick={e=>{handleClick(e)}}>Reset dogs</button>
+            <button className='button' onClick={e=>{handleClick(e)}}>Reset</button>
             <Link className='link_to' to='/create'><button className='button'>new breed</button></Link>
                 <div className='filter-item sel'>
                 <div>Sort by breed name</div>
@@ -117,11 +118,12 @@ const pages = (pageNumber=>(
                 </div>
                 </div>
                 <div className='filter-item sbp'>
-                <SearchBar />
+                <SearchBar page1={setCurrentPage}/>
                 <Pages dogsPerPage={dogsPerPage} allDogs={allDogs.length} pages={pages} current ={currentPage}/>
                 </div>
             </div>
             <div className='cards'>
+                {allDogs.length===0?<div className='landing'>Loading...</div>:''}            
             {currentDogs?.map((dog) => {
                 return (
                     <div className='card' key={dog.id} >

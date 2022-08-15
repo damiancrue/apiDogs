@@ -11,8 +11,14 @@ function validateForm(input) {
 if (!input.name) {
     errors.name = "name is required";
     } else if (input.name.match("^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$")==null) {
-    errors.name ="only can use letters and spaces for name";
-    } 
+        errors.name ="only can use letters and spaces for name";
+    } else if (input.name.match(/(\s{2,})/g)!==null) {
+    errors.name ="you can't use two spaces in a row in the breed name";
+    } else if (input.name.length>25 || input.name.length<3) {
+    errors.name ="the breed name must be between 3 and 25 characters";
+    } else if (input.name.match("^[a-zA-ZñÑáéíóúÁÉÍÓÚ]")==null) {
+    errors.name ="the breed name must be begin with a letter";
+    }
 if (!input.heightMin) {
     errors.heightMin ="minimum height is required";
     } else if (input.heightMin<10){ 
@@ -115,6 +121,7 @@ export default function DogCreate() {
     useEffect(() => {
         dispatch(getTemperaments());
         },[dispatch]);
+    
 
 
     return (
@@ -208,10 +215,18 @@ export default function DogCreate() {
                 <div  className="formItem">
                 <label >Select temperaments:</label>
                 <select className="input" onChange={e=>handleSelect(e)}>
-                    {temperaments.map((temp) => 
-                       (
-                           <option value={temp.name}>{temp.name}</option> 
-                           )
+                <option key={0} value=''>Select</option>
+                    {temperaments.sort(function (a, b) {
+                                if (a.name < b.name) return -1;
+                                if (a.name > b.name) return 1;
+                                return 0;
+                            }).map((temp) => {
+                                return(
+                                    !input.temperaments.includes(temp.name)?
+                                <option value={temp.name}>{temp.name}</option>:
+                                null)
+                            }
+                       
                            )}
                 </select>
                 </div>

@@ -7,7 +7,7 @@ export default function LandingPage() {
 
         <div>
             <h1 className="landing">
-            WELCOME TO DOGS BREEDS APP
+            WELCOME TO DOG BREED APP
             </h1>
             <Link to="/home">
             <button className="button">Enter</button>    

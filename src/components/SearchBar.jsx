@@ -3,9 +3,10 @@ import { useDispatch} from "react-redux";
 import { useState } from "react";
 import { getNameDogs } from "../actions";
 
-export default function SearchBar(){
+export default function SearchBar({page1}){
     const dispatch = useDispatch();
     const [name, setName] = useState("");
+
 
 function handleInputChange(e) {
     e.preventDefault();
@@ -15,8 +16,9 @@ function handleInputChange(e) {
 
 function handleSubmit(e) {
     e.preventDefault();
-    dispatch(getNameDogs(name));
-    setName("");
+    name.length?dispatch(getNameDogs(name)):alert("Please enter a name");
+    setName("")
+    page1(1);
 }
     return (
         <div className="filter-item sel">
