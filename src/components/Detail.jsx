@@ -19,6 +19,7 @@ export default function Detail(props) {
     }, [dispatch, id]);
 
     var dog = useSelector ((state=> state.detail))
+
     console.log(dog[0]);
 
 
@@ -39,7 +40,7 @@ export default function Detail(props) {
             <h5 className="info">Temperament: {dog[0].createdInDb?dog[0].temperaments.map(temperament=> <p key={temperament.name}> - {temperament.name}</p>) :dog[0].temperaments.map(temperament=> <p key={temperament}> - {temperament}</p>)}
             </h5>
             </div>
-            <Link to="/home" > <button onClick={id="zz"} className='button'> back to home</button></Link> 
+            <Link to="/home" > <button onClick={dog=[]} className='button'> back to home</button></Link> 
             </div>
             </div>
             </div>:
